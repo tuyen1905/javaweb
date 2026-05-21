@@ -22,13 +22,37 @@
         th, td { padding: 10px; text-align: left; }
         th { background-color: #f2f2f2; }
         tr:hover { background-color: #f5f5f5; }
+        .btn-edit {
+            background-color: #ffc107; /* Màu vàng cam */
+            color: #212529 !important;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .btn-edit:hover {
+            background-color: #e0a800;
+        }
+        .btn-delete {
+                    background-color: #00ffff; /* Màu vàng cam */
+                    color: #212529 !important;
+                    padding: 5px 10px;
+                    text-decoration: none;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    display: inline-block;
+                }
     </style>
 </head>
 <body>
 
     <div class="section">
         <h2>Yêu cầu 3: Tìm kiếm sinh viên</h2>
-        <form action="${pageContext.request.contextPath}/sinh-vien/tim-kiem" method="get">
+
+        <form action="${pageContext.request.contextPath}/sinh-vien/tim-sinh-vien" method="get">
             <div class="form-group">
                 <input type="text" name="keyword" value="${keyword}" placeholder="Nhập họ tên hoặc số CMND...">
                 <button type="submit" class="btn btn-primary">Tìm kiếm</button>
@@ -38,11 +62,13 @@
         <table>
             <thead>
                 <tr>
-                    <th>Mã Sinh Viên</th>
-                    <th>Họ và Tên</th>
                     <th>Số CMND</th>
-                    <th>Ngày Sinh</th>
-                    <th>Quê Quán</th>
+                    <th>Họ và Tên</th>
+                    <th>Email</th>
+                    <th>Địa Chỉ</th>
+                    <th>Số DT</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,11 +76,19 @@
                     <c:when test="${not empty listSinhVien}">
                         <c:forEach items="${listSinhVien}" var="sv">
                             <tr>
-                                <td>${sv.maSV}</td>
-                                <td>${sv.hoTen}</td>
                                 <td>${sv.soCMND}</td>
-                                <td>${sv.ngaySinh}</td>
-                                <td>${sv.queQuan}</td>
+                                <td>${sv.hoTen}</td>
+                                <td>${sv.email}</td>
+                                <td>${sv.diaChi}</td>
+                                <td>${sv.soDT}</td>
+                                <td><a href="${pageContext.request.contextPath}/sinh-vien/sua-sinh-vien/${sv.soCMND}" class="btn-edit">
+                                        Sửa thông tin
+                                    </a>
+                                </td>
+                                <td><a href="${pageContext.request.contextPath}/sinh-vien/xoa-sinh-vien/${sv.soCMND}" class="btn-delete">
+                                        Xoa thông tin
+                                    </a>
+                                </td>
                             </tr>
                         </c:forEach>
                     </c:when>
