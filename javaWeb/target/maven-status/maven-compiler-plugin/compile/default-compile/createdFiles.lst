@@ -1,0 +1,13 @@
+com\example\javaweb\entity\Nganh.class
+com\example\javaweb\entity\SinhVien.class
+com\example\javaweb\entity\CongViec.class
+com\example\javaweb\repository\CongViecRepository.class
+com\example\javaweb\repository\TruongRepository.class
+com\example\javaweb\entity\TotNghiep.class
+com\example\javaweb\service\StudentService.class
+com\example\javaweb\controller\StudentController.class
+com\example\javaweb\JavaWebApplication.class
+com\example\javaweb\repository\TotNghiepRepository.class
+com\example\javaweb\repository\NganhRepository.class
+com\example\javaweb\repository\SinhVienRepository.class
+com\example\javaweb\entity\Truong.class
